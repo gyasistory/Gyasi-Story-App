@@ -3,7 +3,7 @@ dist: trusty
 jdk: oraclejdk8
 env:
   global:
-    - GRADLE_OPTS="Xmx3072m"
+    - GRADLE_OPTS="-Xmx3072m"
     - ADB_INSTALL_TIMEOUT=10
   matrix:
     - ANDROID_TARGET=android-24 ANDROID_ABI=armeabi-v7a
