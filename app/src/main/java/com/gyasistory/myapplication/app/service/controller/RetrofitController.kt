@@ -16,7 +16,7 @@ import retrofit2.converter.gson.GsonConverterFactory
  */
 object RetrofitController {
     private const val TAG = "RetrofitController"
-    fun getGSONRetrofitBuilder(url: String?): Retrofit {
+    fun getGSONRetrofitBuilder(url: String): Retrofit {
         val builder = Retrofit.Builder()
             .baseUrl(url)
             .addConverterFactory(GsonConverterFactory.create())
