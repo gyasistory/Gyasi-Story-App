@@ -10,7 +10,14 @@
         android:id="@+id/nav_welcome"
         android:name="com.gyasistory.myapplication.app.view.fragments.WelcomeFragment"
         android:label="Welcome Fragment"
-        tools:layout="@layout/fragment_welcome" />
+        tools:layout="@layout/fragment_welcome" >
+        <action
+            android:id="@+id/action_nav_welcome_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_nav_welcome_to_postsFragment"
+            app:destination="@id/postsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.gyasistory.myapplication.app.view.fragments.SettingsFragment"
@@ -18,7 +25,12 @@
     <fragment
         android:id="@+id/postsFragment"
         android:name="com.gyasistory.myapplication.app.view.fragments.PostsFragment"
-        android:label="PostsFragment" />
+        android:label="PostsFragment"
+        tools:layout="@layout/fragment_post">
+        <action
+            android:id="@+id/action_postsFragment_to_postDetailFragment"
+            app:destination="@id/postDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/postDetailFragment"
         android:name="com.gyasistory.myapplication.app.view.fragments.PostDetailFragment"
