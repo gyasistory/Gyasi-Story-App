@@ -1,4 +1,4 @@
-package com.gyasistory.myapplication.app.view.activity
+package com.gyasistory.myapplication.app.view.fragments
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

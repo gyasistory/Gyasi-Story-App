@@ -13,6 +13,15 @@
         tools:layout="@layout/fragment_welcome" />
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.gyasistory.myapplication.app.view.activity.SettingsFragment"
+        android:name="com.gyasistory.myapplication.app.view.fragments.SettingsFragment"
         android:label="SettingsFragment" />
+    <fragment
+        android:id="@+id/postsFragment"
+        android:name="com.gyasistory.myapplication.app.view.fragments.PostsFragment"
+        android:label="PostsFragment" />
+    <fragment
+        android:id="@+id/postDetailFragment"
+        android:name="com.gyasistory.myapplication.app.view.fragments.PostDetailFragment"
+        android:label="fragment_post_detail"
+        tools:layout="@layout/fragment_post_detail" />
 </navigation>
