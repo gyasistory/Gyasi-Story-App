@@ -4,6 +4,7 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.appdistribution'
 
 android {
     compileSdkVersion 29
@@ -41,9 +42,12 @@ dependencies {
     implementation "com.google.android.material:material:${material}"
     implementation "androidx.appcompat:appcompat:${androidX.appcompat}"
     implementation "androidx.core:core-ktx:${androidX.core}"
+
+    // FireBase Dependencies
     implementation "com.google.firebase:firebase-core:${firebase.core}"
     implementation "com.google.firebase:firebase-messaging:${firebase.messaging}"
-    implementation 'com.google.firebase:firebase-inappmessaging-display:19.0.3'
+    implementation "com.google.firebase:firebase-inappmessaging-display:${firebase.inappmessaging}"
+
     implementation 'androidx.preference:preference:1.1.0'
     testImplementation "junit:junit:${junit}"
     androidTestImplementation "androidx.test.ext:junit:${androidX.junit}"
