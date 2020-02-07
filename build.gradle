@@ -1,11 +1,11 @@
 ext {
     androidX = [
             appcompat   : '1.1.0',
-            core        : '1.1.0',
+            core        : '1.2.0',
             junit       : '1.1.1',
             espressocore: '3.2.0'
     ]
-    material = '1.0.0'
+    material = '1.1.0'
     firebase = [
             core            : '17.2.2',
             messaging       : '20.1.0',
