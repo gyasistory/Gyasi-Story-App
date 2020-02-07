@@ -1,7 +1,7 @@
 ext {
     androidX = [
             appcompat   : '1.1.0',
-            core        : '1.1.0',
+            core        : '1.2.0',
             junit       : '1.1.1',
             espressocore: '3.2.0'
     ]
