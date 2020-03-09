@@ -8,7 +8,7 @@ ext {
     material = '1.1.0'
     firebase = [
             core            : '17.2.3',
-            messaging       : '20.1.1',
+            messaging       : '20.1.2',
             inappmessaging  : '19.0.3'
     ]
     junit = "4.13"
