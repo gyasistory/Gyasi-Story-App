@@ -63,7 +63,7 @@ jobs:
         - git fetch --unshallow
       script:
         # Add Beta Release Platform
-        - ./gradlew clean assembleDebug --continue --stacktrace --parallel
+        - ./gradlew clean assembleDebug appDistributionUploadDebug
 
 notifications:
   email: true
