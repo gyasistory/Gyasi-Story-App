@@ -40,6 +40,16 @@ android {
         debug {
             applicationIdSuffix = '.debug'
             versionNameSuffix = '_DEBUG'
+
+            if (project.hasProperty('firebaseAppDistributionBuild')) {
+
+                firebaseAppDistribution {
+                    appId = '1:630230093508:android:a24c45194a4d4ae5'
+                    releaseNotes = generateFirebaseAppDistributionReleaseNotes()
+                    serviceCredentialsFile = rootProject.file("firebase/firebase_api_key.json")
+                    groups = 'main-testers'
+                }
+            }
         }
     }
     lintOptions {
