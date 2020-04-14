@@ -4,8 +4,24 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.appdistribution'
+apply plugin: 'com.google.firebase.firebase-perf'
 
 android {
+    signingConfigs {
+        debug {
+            storeFile rootProject.file('app/Story_Tail_KeyStore')
+            storePassword System.getenv("KEY_STORE_PASSWORD")
+            keyAlias = 'story-tail key'
+            keyPassword System.getenv("KEY_STORE_PASSWORD")
+        }
+        release {
+            storeFile rootProject.file('app/Story_Tail_KeyStore')
+            storePassword System.getenv("KEY_STORE_PASSWORD")
+            keyAlias = 'story-tail key'
+            keyPassword System.getenv("KEY_STORE_PASSWORD")
+        }
+    }
     compileSdkVersion 29
     defaultConfig {
         applicationId "com.gyasistory.myapplication.app"
@@ -24,6 +40,16 @@ android {
         debug {
             applicationIdSuffix = '.debug'
             versionNameSuffix = '_DEBUG'
+
+            if (project.hasProperty('firebaseAppDistributionBuild')) {
+
+                firebaseAppDistribution {
+                    appId = '1:630230093508:android:a24c45194a4d4ae5'
+                    releaseNotes = generateFirebaseAppDistributionReleaseNotes()
+                    serviceCredentialsFile = rootProject.file("firebase/firebase_api_key.json")
+                    groups = 'main-testers'
+                }
+            }
         }
     }
     lintOptions {
@@ -41,10 +67,15 @@ dependencies {
     implementation "com.google.android.material:material:${material}"
     implementation "androidx.appcompat:appcompat:${androidX.appcompat}"
     implementation "androidx.core:core-ktx:${androidX.core}"
+
+    // FireBase Dependencies
     implementation "com.google.firebase:firebase-core:${firebase.core}"
     implementation "com.google.firebase:firebase-messaging:${firebase.messaging}"
-    implementation 'com.google.firebase:firebase-inappmessaging-display:19.0.5'
+    implementation "com.google.firebase:firebase-inappmessaging-display:${firebase.inappmessaging}"
+
     implementation 'androidx.preference:preference:1.1.0'
+    implementation 'com.google.firebase:firebase-analytics:17.3.0'
+    implementation 'com.google.firebase:firebase-perf:19.0.6'
     testImplementation "junit:junit:${junit}"
     androidTestImplementation "androidx.test.ext:junit:${androidX.junit}"
     androidTestImplementation "androidx.test.espresso:espresso-core:${androidX.espressocore}"
@@ -76,4 +107,14 @@ dependencies {
 //    implementation "android.arch.persistence.room:runtime:$roomVersion"
 //    kapt "android.arch.persistence.room:compiler:$roomVersion"
 //    androidTestImplementation "android.arch.persistence.room:testing:$roomVersion"
+}
+
+def generateFirebaseAppDistributionReleaseNotes(size = 10) {
+    def output = "Recent changes:\n\n"
+    grgit.log {
+        maxCommits = size
+    }.each { commit ->
+        output = output + "* " + commit.shortMessage + "\n"
+    }
+    return output
 }
