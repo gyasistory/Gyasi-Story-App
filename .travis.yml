@@ -42,12 +42,12 @@ jobs:
     - name: "Build Debug"
       stage: compile
       install: skip
-      script: ./gradlew clean assembleDebug --continue --stacktrace --parallel
+      script: ./gradlew assembleDebug --continue --stacktrace --parallel
 
     - name: "Build Release"
       stage: test
       install: skip
-      script: ./gradlew clean assembleRelease --continue --stacktrace --parallel
+      script: ./gradlew assembleRelease --continue --stacktrace --parallel
 
     - name: "Static Analysis"
       stage: compile
@@ -63,7 +63,7 @@ jobs:
         - git fetch --unshallow
       script:
         # Add Beta Release Platform
-        - ./gradlew clean assembleDebug appDistributionUploadDebug
+        - ./gradlew appDistributionUploadDebug --parallel
 
 notifications:
   email: true
