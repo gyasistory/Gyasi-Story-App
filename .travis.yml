@@ -65,8 +65,6 @@ jobs:
 
     - name: "Release Beta"
       stage: deploy
-      install:
-        - git fetch --unshallow
       script:
         - ./gradlew appDistributionUploadDebug -PfirebaseAppDistributionBuild --parallel
 
