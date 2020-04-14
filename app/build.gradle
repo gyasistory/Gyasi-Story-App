@@ -5,6 +5,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.firebase.appdistribution'
+apply plugin: 'com.google.firebase.firebase-perf'
 
 android {
     signingConfigs {
@@ -63,6 +64,8 @@ dependencies {
     implementation "com.google.firebase:firebase-inappmessaging-display:${firebase.inappmessaging}"
 
     implementation 'androidx.preference:preference:1.1.0'
+    implementation 'com.google.firebase:firebase-analytics:17.3.0'
+    implementation 'com.google.firebase:firebase-perf:19.0.6'
     testImplementation "junit:junit:${junit}"
     androidTestImplementation "androidx.test.ext:junit:${androidX.junit}"
     androidTestImplementation "androidx.test.espresso:espresso-core:${androidX.espressocore}"
