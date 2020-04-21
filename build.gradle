@@ -9,7 +9,7 @@ ext {
     firebase = [
             core            : '17.3.0',
             messaging       : '20.1.5',
-            inappmessaging  : '19.0.3'
+            inappmessaging  : '19.0.5'
     ]
     junit = "4.13"
     nav_version = "1.0.0"
