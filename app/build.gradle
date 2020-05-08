@@ -9,7 +9,7 @@ apply plugin: 'com.google.firebase.firebase-perf'
 
 android {
     signingConfigs {
-        debug {
+        firebase {
             storeFile rootProject.file('app/Story_Tail_KeyStore')
             storePassword System.getenv("KEY_STORE_PASSWORD")
             keyAlias = 'story-tail key'
@@ -42,7 +42,7 @@ android {
             versionNameSuffix = '_DEBUG'
 
             if (project.hasProperty('firebaseAppDistributionBuild')) {
-
+                signingConfig = signingConfigs.firebase
                 firebaseAppDistribution {
                     appId = '1:630230093508:android:a24c45194a4d4ae5'
                     releaseNotes = generateFirebaseAppDistributionReleaseNotes()
