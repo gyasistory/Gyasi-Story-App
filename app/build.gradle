@@ -59,6 +59,9 @@ android {
         sourceCompatibility = 1.8
         targetCompatibility = 1.8
     }
+    viewBinding {
+        enabled = true
+    }
 }
 
 dependencies {
@@ -109,8 +112,9 @@ dependencies {
     releaseImplementation 'com.facebook.flipper:flipper-noop:0.41.0'
     debugImplementation 'com.facebook.flipper:flipper-network-plugin:0.41.0'
     debugImplementation 'com.facebook.flipper:flipper-leakcanary-plugin:0.41.0'
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.1'
-    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.1'
+    //noinspection GradleDynamicVersion,GradleDependency
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.3'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
 
     // Room components
 //    implementation "android.arch.persistence.room:runtime:$roomVersion"
