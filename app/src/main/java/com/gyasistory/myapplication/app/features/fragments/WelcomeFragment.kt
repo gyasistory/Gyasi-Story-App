@@ -1,4 +1,4 @@
-package com.gyasistory.myapplication.app.view.fragments
+package com.gyasistory.myapplication.app.features.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater

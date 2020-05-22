@@ -1,6 +1,6 @@
-package com.gyasistory.myapplication.app.model_view;
+package com.gyasistory.myapplication.app.features.wordpress.api;
 
-import com.gyasistory.myapplication.app.model.AllGyasiPosts;
+import com.gyasistory.myapplication.app.features.wordpress.model.AllGyasiPosts;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
