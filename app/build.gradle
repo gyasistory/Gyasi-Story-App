@@ -74,7 +74,7 @@ dependencies {
     implementation "com.google.firebase:firebase-inappmessaging-display:${firebase.inappmessaging}"
 
     implementation 'androidx.preference:preference:1.1.1'
-    implementation 'com.google.firebase:firebase-analytics:17.4.1'
+    implementation 'com.google.firebase:firebase-analytics:17.4.2'
     implementation 'com.google.firebase:firebase-perf:19.0.7'
     testImplementation "junit:junit:${junit}"
     androidTestImplementation "androidx.test.ext:junit:${androidX.junit}"
