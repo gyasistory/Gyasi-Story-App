@@ -9,8 +9,8 @@ buildscript {
         ]
         material = '1.1.0'
         firebase = [
-                core          : '17.4.2',
-                messaging     : '20.2.0',
+                core          : '17.4.3',
+                messaging     : '20.2.1',
                 inappmessaging: '19.0.7'
         ]
         junit = "4.13"
