@@ -3,7 +3,7 @@ buildscript {
     ext {
         androidX = [
                 appcompat   : '1.2.0',
-                core        : '1.3.0',
+                core        : '1.3.1',
                 junit       : '1.1.1',
                 espressocore: '3.2.0'
         ]
