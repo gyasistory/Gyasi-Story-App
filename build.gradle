@@ -11,7 +11,7 @@ buildscript {
         firebase = [
                 core          : '18.0.0',
                 messaging     : '20.3.0',
-                inappmessaging: '19.0.7'
+                inappmessaging: '19.1.4'
         ]
         junit = "4.13"
         nav_version = "1.0.0"
