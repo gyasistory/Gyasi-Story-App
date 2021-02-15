@@ -5,6 +5,7 @@ on:
     branches: [ develop ]
 
 jobs:
+  enviroment: devlopment_variables
   build:
 
     runs-on: ubuntu-latest
