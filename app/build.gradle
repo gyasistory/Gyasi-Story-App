@@ -102,7 +102,7 @@ dependencies {
     implementation 'com.facebook.stetho:stetho:1.5.1'
     implementation 'com.facebook.stetho:stetho-urlconnection:1.6.0'
     implementation 'com.facebook.stetho:stetho-okhttp3:1.6.0'
-    implementation 'com.facebook.stetho:stetho-okhttp:1.5.1'
+    implementation 'com.facebook.stetho:stetho-okhttp:1.6.0'
 
     // Room components
 //    implementation "android.arch.persistence.room:runtime:$roomVersion"
