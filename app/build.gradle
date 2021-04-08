@@ -81,7 +81,7 @@ dependencies {
     androidTestImplementation "androidx.test.ext:junit:${androidX.junit}"
     androidTestImplementation "androidx.test.espresso:espresso-core:${androidX.espressocore}"
 
-    implementation 'androidx.navigation:navigation-fragment:2.3.4'
+    implementation 'androidx.navigation:navigation-fragment:2.3.5'
     // use -ktx for Kotlin
     implementation 'androidx.navigation:navigation-ui:2.3.4'
 
