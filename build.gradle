@@ -21,7 +21,7 @@ buildscript {
 
     ext {
         kotlin_version = '1.4.32'
-        appdistribution = '2.1.0'
+        appdistribution = '2.1.1'
     }
     repositories {
         google()
