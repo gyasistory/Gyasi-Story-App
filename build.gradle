@@ -5,7 +5,7 @@ buildscript {
                 appcompat   : '1.3.0',
                 core        : '1.5.0',
                 junit       : '1.1.2',
-                espressocore: '3.3.0'
+                espressocore: '3.4.0'
         ]
         material = '1.3.0'
         firebase = [
