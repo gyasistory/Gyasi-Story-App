@@ -2,9 +2,9 @@ package com.gyasistory.myapplication.app.service.controller
 
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.gyasistory.myapplication.app.BuildConfig
-import com.gyasistory.myapplication.app.model.AllGyasiPosts
+import com.gyasistory.myapplication.app.features.wordpress.model.AllGyasiPosts
 import com.gyasistory.myapplication.app.model.GlobalConstants
-import com.gyasistory.myapplication.app.model_view.GyasiSiteAPICalls
+import com.gyasistory.myapplication.app.features.wordpress.api.GyasiSiteAPICalls
 import io.reactivex.Observable
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit

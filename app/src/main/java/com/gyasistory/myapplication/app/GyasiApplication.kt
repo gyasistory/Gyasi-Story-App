@@ -7,5 +7,7 @@ open class GyasiApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         WordPressService.instance?.start(applicationContext)
+
+
     }
 }

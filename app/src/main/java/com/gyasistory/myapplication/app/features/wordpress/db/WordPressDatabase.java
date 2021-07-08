@@ -1,4 +1,4 @@
-package com.gyasistory.myapplication.app.model.db;
+package com.gyasistory.myapplication.app.features.wordpress.db;
 
 import android.content.Context;
 

@@ -1,4 +1,4 @@
-package com.gyasistory.myapplication.app.model
+package com.gyasistory.myapplication.app.features.wordpress.model
 
 import com.google.gson.annotations.SerializedName
 

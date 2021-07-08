@@ -1,6 +1,5 @@
 package com.gyasistory.myapplication.app
 
-import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -15,10 +14,8 @@ import androidx.navigation.Navigation
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
-import com.gyasistory.myapplication.app.view.fragments.PostsFragment
 
-class MainActivity : AppCompatActivity(),
-    NavigationView.OnNavigationItemSelectedListener, PostsFragment.OnFragmentInteractionListener {
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private var mNavController: NavController? = null
     var navigationView: NavigationView? = null
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -87,7 +84,6 @@ class MainActivity : AppCompatActivity(),
         return true
     }
 
-    override fun onFragmentInteraction(uri: Uri?) {}
 
     override fun onSupportNavigateUp(): Boolean {
         if (mNavController == null) {

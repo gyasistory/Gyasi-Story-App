@@ -1,7 +1,6 @@
-package com.gyasistory.myapplication.app.view.fragments
+package com.gyasistory.myapplication.app.features.fragments
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.PreferenceFragmentCompat
 import com.gyasistory.myapplication.app.R
 

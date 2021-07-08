@@ -1,4 +1,4 @@
-package com.gyasistory.myapplication.app.view.fragments
+package com.gyasistory.myapplication.app.features.wordpress.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -47,7 +47,8 @@ class PostDetailFragment : Fragment() {
          */
 // TODO: Rename and change types and number of parameters
         fun newInstance(param1: String?, param2: String?): PostDetailFragment {
-            val fragment = PostDetailFragment()
+            val fragment =
+                PostDetailFragment()
             val args = Bundle()
             args.putString(ARG_PARAM1, param1)
             args.putString(ARG_PARAM2, param2)

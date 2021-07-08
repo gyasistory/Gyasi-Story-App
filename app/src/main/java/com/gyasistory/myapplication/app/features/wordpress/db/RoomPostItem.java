@@ -1,6 +1,6 @@
-package com.gyasistory.myapplication.app.model.db;
+package com.gyasistory.myapplication.app.features.wordpress.db;
 
-import com.gyasistory.myapplication.app.model.PostsItem;
+import com.gyasistory.myapplication.app.features.wordpress.model.PostsItem;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;

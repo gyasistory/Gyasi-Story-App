@@ -1,16 +1,14 @@
 package com.gyasistory.myapplication.app.service
 
 import android.content.Context
-import com.gyasistory.myapplication.app.model.AllGyasiPosts
-import com.gyasistory.myapplication.app.model.db.RoomPostItem
-import com.gyasistory.myapplication.app.model.db.WordPressRepository
+import com.gyasistory.myapplication.app.features.wordpress.model.AllGyasiPosts
+import com.gyasistory.myapplication.app.features.wordpress.db.RoomPostItem
+import com.gyasistory.myapplication.app.features.wordpress.db.WordPressRepository
 import com.gyasistory.myapplication.app.service.controller.RetrofitController.wordPressPost
 import com.gyasistory.myapplication.app.service.controller.SharePreferenceController.getSyncDelayValue
 import io.reactivex.Observable
-import io.reactivex.ObservableSource
 import io.reactivex.Observer
 import io.reactivex.disposables.Disposable
-import io.reactivex.functions.Function
 import io.reactivex.schedulers.Schedulers
 import timber.log.Timber
 import java.util.*
@@ -21,7 +19,10 @@ class WordPressService private constructor() {
     private var mRepository: WordPressRepository? = null
     fun start(context: Context) {
         val delayTime = getSyncDelayValue(context.applicationContext)
-        mRepository = WordPressRepository(context)
+        mRepository =
+            WordPressRepository(
+                context
+            )
         Observable.interval(delayTime.toLong(), TimeUnit.MILLISECONDS, Schedulers.io())
             .flatMap { mAllGyasiPosts }
             .observeOn(Schedulers.io())
@@ -43,7 +44,11 @@ class WordPressService private constructor() {
                     Objects.requireNonNull(allGyasiPosts.posts).toString()
                 )
                 for (post in allGyasiPosts.posts!!) {
-                    mRepository!!.insertPostItem(RoomPostItem(post))
+                    mRepository!!.insertPostItem(
+                        RoomPostItem(
+                            post
+                        )
+                    )
                 }
             }
 

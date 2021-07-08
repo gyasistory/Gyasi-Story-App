@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/nav_welcome"
-        android:name="com.gyasistory.myapplication.app.view.fragments.WelcomeFragment"
+        android:name="com.gyasistory.myapplication.app.features.fragments.WelcomeFragment"
         android:label="Welcome Fragment"
         tools:layout="@layout/fragment_welcome" >
         <action
@@ -20,11 +20,11 @@
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.gyasistory.myapplication.app.view.fragments.SettingsFragment"
+        android:name="com.gyasistory.myapplication.app.features.fragments.SettingsFragment"
         android:label="SettingsFragment" />
     <fragment
         android:id="@+id/postsFragment"
-        android:name="com.gyasistory.myapplication.app.view.fragments.PostsFragment"
+        android:name="com.gyasistory.myapplication.app.features.wordpress.fragment.PostsFragment"
         android:label="PostsFragment"
         tools:layout="@layout/fragment_post">
         <action
@@ -33,7 +33,7 @@
     </fragment>
     <fragment
         android:id="@+id/postDetailFragment"
-        android:name="com.gyasistory.myapplication.app.view.fragments.PostDetailFragment"
+        android:name="com.gyasistory.myapplication.app.features.wordpress.fragment.PostDetailFragment"
         android:label="fragment_post_detail"
         tools:layout="@layout/fragment_post_detail" />
 </navigation>
