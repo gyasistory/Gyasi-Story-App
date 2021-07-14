@@ -1,0 +1,121 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.appdistribution'
+apply plugin: 'com.google.firebase.firebase-perf'
+apply plugin: 'org.ajoberstar.grgit'
+
+android {
+    signingConfigs {
+        firebase {
+            storeFile rootProject.file('app/Story_Tail_KeyStore')
+            storePassword System.getenv("KEY_STORE_PASSWORD")
+            keyAlias = 'story-tail key'
+            keyPassword System.getenv("KEY_STORE_PASSWORD")
+        }
+        release {
+            storeFile rootProject.file('app/Story_Tail_KeyStore')
+            storePassword System.getenv("KEY_STORE_PASSWORD")
+            keyAlias = 'story-tail key'
+            keyPassword System.getenv("KEY_STORE_PASSWORD")
+        }
+    }
+    compileSdkVersion 29
+    defaultConfig {
+        applicationId "com.gyasistory.myapplication.app"
+        minSdkVersion 19
+        targetSdkVersion 29
+        versionCode grgit.log(includes:['HEAD']).size()
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            applicationIdSuffix = '.debug'
+            versionNameSuffix = '_DEBUG'
+
+            if (project.hasProperty('firebaseAppDistributionBuild')) {
+                signingConfig = signingConfigs.firebase
+                firebaseAppDistribution {
+                    appId = '1:630230093508:android:a24c45194a4d4ae5'
+                    releaseNotes = generateFirebaseAppDistributionReleaseNotes()
+                    serviceCredentialsFile = rootProject.file("firebase/firebase_api_key.json")
+                    groups = 'main-testers'
+                }
+            }
+        }
+    }
+    lintOptions {
+        abortOnError false
+    }
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    implementation "com.google.android.material:material:${material}"
+    implementation "androidx.appcompat:appcompat:${androidX.appcompat}"
+    implementation "androidx.core:core-ktx:${androidX.core}"
+
+    // FireBase Dependencies
+    implementation "com.google.firebase:firebase-core:${firebase.core}"
+    implementation "com.google.firebase:firebase-messaging:${firebase.messaging}"
+    implementation "com.google.firebase:firebase-inappmessaging-display:${firebase.inappmessaging}"
+
+    implementation 'androidx.preference:preference:1.1.1'
+    implementation 'com.google.firebase:firebase-analytics:19.0.0'
+    implementation 'com.google.firebase:firebase-perf:20.0.2'
+    testImplementation "junit:junit:${junit}"
+    androidTestImplementation "androidx.test.ext:junit:${androidX.junit}"
+    androidTestImplementation "androidx.test.espresso:espresso-core:${androidX.espressocore}"
+
+    implementation 'androidx.navigation:navigation-fragment:2.3.5'
+    // use -ktx for Kotlin
+    implementation 'androidx.navigation:navigation-ui:2.3.5'
+
+    implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
+
+//    androidTestImplementation "android.arch.navigation:navigation-testing:$nav_version"
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.room:room-runtime:2.3.0'
+    annotationProcessor 'androidx.room:room-compiler:2.3.0'
+
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.google.code.gson:gson:2.8.7'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.9.0'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'com.facebook.stetho:stetho:1.6.0'
+    implementation 'com.facebook.stetho:stetho-urlconnection:1.6.0'
+    implementation 'com.facebook.stetho:stetho-okhttp3:1.6.0'
+    implementation 'com.facebook.stetho:stetho-okhttp:1.6.0'
+
+    // Room components
+//    implementation "android.arch.persistence.room:runtime:$roomVersion"
+//    kapt "android.arch.persistence.room:compiler:$roomVersion"
+//    androidTestImplementation "android.arch.persistence.room:testing:$roomVersion"
+}
+
+def generateFirebaseAppDistributionReleaseNotes(size = 10) {
+    def output = "Recent changes:\n\n"
+    grgit.log {
+        maxCommits = size
+    }.each { commit ->
+        output = output + "* " + commit.shortMessage + "\n"
+    }
+    return output
+}
